@@ -11,11 +11,11 @@ export const generateOTP = () => {
 
 export  const mailTransport = () => {
     var transport = nodemailer.createTransport({
-        service: "gmail",
+        service: "outlook",
         port: 587,
         auth: {
-          user: "kelvinbeno526@gmail.com",
-          pass: "Makovuproject1"
+          user: "veriphy@outlook.com",
+          pass: "Developer123"
         },
         tls:{
             rejectUnauthorized: false
