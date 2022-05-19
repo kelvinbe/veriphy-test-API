@@ -1,6 +1,8 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import User from '../models/user.js'
+import {generateOTP, mailTransport} from '../utils/mail.js'
+import UserOTP from '../models/Otp.js'
 
 
 
@@ -52,6 +54,27 @@ export const signup = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 12)
 
         const result = await User.create({email, password: hashedPassword, name: `${firstName}, ${lastName}`, phone})
+        const otp = generateOTP()
+        const verifyToken = new UserOTP({
+            owner: result._id,
+            token: otp
+        })
+
+        await verifyToken.save()
+
+        mailTransport().sendMail({
+            from: 'kelvinbeno526@gmail.com',
+            to: result.email,
+            subject: 'Verify your email account',
+            html: `<h1> Hello please verify your email account</h1>`
+        }, (err, data) => {
+            if(err){
+                console.log('Error occurs')
+            }else{
+                console.log('email sent')
+            }
+        })
+
 
         const token = jwt.sign({email: result.email, id: result._id}, 'test', {expiresIn: '1h'})
 
