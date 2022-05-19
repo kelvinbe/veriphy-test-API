@@ -8,6 +8,7 @@ import userRoutes from './routes/users.js'
 
 const app = express()
 
+const path = require('path');
 
 
 app.use(bodyParser.json({ limit: '30mb', extended: true}))
