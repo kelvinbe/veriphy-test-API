@@ -2,13 +2,14 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
+import path from 'path'
 
 
 import userRoutes from './routes/users.js'
 
 const app = express()
 
-const path = require('path');
+
 
 
 app.use(bodyParser.json({ limit: '30mb', extended: true}))
