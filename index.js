@@ -34,7 +34,7 @@ mongoose.connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true})
 
 app.use('/user', userRoutes)
 
-console.log('heyy')
+console.log('hey')
 
 app.use(express.static(path.join(__dirname, "./Frontend/build")));
 
