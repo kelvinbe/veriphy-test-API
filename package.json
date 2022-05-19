@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "heroku-postbuild": "cd Frontend && npm install && npm run build"
+    "build": "cd Frontend && npm run build",
+    "install-front": "cd Frontend && npm install",
+    "heroku-postbuild": "npm run install-front && npm run build"
 
   },
   "keywords": [],
