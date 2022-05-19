@@ -63,13 +63,13 @@ export const signup = async (req, res) => {
         await verifyToken.save()
 
         mailTransport().sendMail({
-            from: 'kelvinbeno526@gmail.com',
+            from: 'veriphy@outlook.com',
             to: result.email,
             subject: 'Verify your email account',
             html: `<h1> Hello please verify your email account</h1>`
         }, (err, data) => {
             if(err){
-                console.log('Error occurs')
+                console.log('Error occurs', err)
             }else{
                 console.log('email sent')
             }

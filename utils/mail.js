@@ -11,15 +11,16 @@ export const generateOTP = () => {
 
 export  const mailTransport = () => {
     var transport = nodemailer.createTransport({
-        service: "outlook",
+        host: "smtp-mail.outlook.com",
+        secureConnection: false, // TLS requires secureConnection to be false
         port: 587,
         auth: {
           user: "veriphy@outlook.com",
           pass: "Developer123"
         },
-        tls:{
-            rejectUnauthorized: false
-        }
+        tls: {
+            ciphers:'SSLv3'
+         },
       });
       return transport
 }
