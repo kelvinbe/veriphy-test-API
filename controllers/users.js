@@ -78,7 +78,7 @@ export const signup = async (req, res) => {
             from: 'veriphy@outlook.com',
             to: result.email,
             subject: 'Verify your email account',
-            html: `<h1> Hello please verify that your email account is ${result.email}. Your device is  {XiaoMi Redmi 7}</h1>`
+            html: `<h1> Hello please verify that your email account is ${result.email}. Your device is {XiaoMi Redmi 7}</h1>`
         }, (err, data) => {
             if(err){
                 console.log('Error occurs', err)
