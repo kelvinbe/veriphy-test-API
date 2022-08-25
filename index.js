@@ -30,7 +30,7 @@ mongoose.connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true})
 
 app.use('/user', userRoutes)
 
-console.log('hey')
+console.log('hey i am live')
 
 
 
